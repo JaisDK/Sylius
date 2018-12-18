@@ -14,21 +14,15 @@ declare(strict_types=1);
 namespace Sylius\Behat\Context\Ui\Shop\Checkout;
 
 use Behat\Behat\Context\Context;
-use Sylius\Behat\Page\Shop\Account\RegisterPageInterface;
 use Sylius\Behat\Page\Shop\Order\ThankYouPageInterface;
 use Sylius\Component\Core\Model\PaymentMethodInterface;
 use Webmozart\Assert\Assert;
 
 final class CheckoutThankYouContext implements Context
 {
-    /**
-     * @var ThankYouPageInterface
-     */
+    /** @var ThankYouPageInterface */
     private $thankYouPage;
 
-    /**
-     * @param ThankYouPageInterface $thankYouPage
-     */
     public function __construct(ThankYouPageInterface $thankYouPage)
     {
         $this->thankYouPage = $thankYouPage;

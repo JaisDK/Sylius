@@ -19,9 +19,7 @@ use Sylius\Component\User\Model\User as BaseUser;
 
 class ShopUser extends BaseUser implements ShopUserInterface
 {
-    /**
-     * @var BaseCustomerInterface|null
-     */
+    /** @var BaseCustomerInterface|null */
     protected $customer;
 
     /**
@@ -99,5 +97,13 @@ class ShopUser extends BaseUser implements ShopUserInterface
         }
 
         $this->customer->setEmailCanonical($emailCanonical);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getEncoderName(): string
+    {
+        return 'sylius_password_encoder_sha512';
     }
 }

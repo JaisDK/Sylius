@@ -13,17 +13,10 @@ declare(strict_types=1);
 
 namespace Sylius\Behat\Page;
 
-interface SymfonyPageInterface extends PageInterface
+interface ErrorPageInterface
 {
     /**
-     * @return string
+     * @throws \Behat\Mink\Exception\ElementNotFoundException
      */
-    public function getRouteName();
-
-    /**
-     * @param array $requiredUrlParameters
-     *
-     * @throws UnexpectedPageException
-     */
-    public function verifyRoute(array $requiredUrlParameters = []);
+    public function getTitle(): string;
 }

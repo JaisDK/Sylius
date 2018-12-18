@@ -39,9 +39,6 @@ final class Configuration implements ConfigurationInterface
         return $treeBuilder;
     }
 
-    /**
-     * @param ArrayNodeDefinition $node
-     */
     private function addEmailsSection(ArrayNodeDefinition $node): void
     {
         $node
@@ -70,6 +67,7 @@ final class Configuration implements ConfigurationInterface
                     ->end()
                 ->end()
                 ->arrayNode('templates')
+                    ->setDeprecated(true)
                     ->useAttributeAsKey('name')
                     ->scalarPrototype()->end()
                 ->end()

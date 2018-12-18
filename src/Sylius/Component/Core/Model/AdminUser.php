@@ -17,19 +17,13 @@ use Sylius\Component\User\Model\User;
 
 class AdminUser extends User implements AdminUserInterface
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $firstName;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $lastName;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $localeCode;
 
     public function __construct()
@@ -85,5 +79,13 @@ class AdminUser extends User implements AdminUserInterface
     public function setLocaleCode(?string $code): void
     {
         $this->localeCode = $code;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getEncoderName(): string
+    {
+        return 'sylius_password_encoder_sha512';
     }
 }

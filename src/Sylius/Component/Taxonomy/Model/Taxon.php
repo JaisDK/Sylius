@@ -25,49 +25,31 @@ class Taxon implements TaxonInterface
         getTranslation as private doGetTranslation;
     }
 
-    /**
-     * @var mixed
-     */
+    /** @var mixed */
     protected $id;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     protected $code;
 
-    /**
-     * @var TaxonInterface|null
-     */
+    /** @var TaxonInterface|null */
     protected $root;
 
-    /**
-     * @var TaxonInterface|null
-     */
+    /** @var TaxonInterface|null */
     protected $parent;
 
-    /**
-     * @var Collection|TaxonInterface[]
-     */
+    /** @var Collection|TaxonInterface[] */
     protected $children;
 
-    /**
-     * @var int|null
-     */
+    /** @var int|null */
     protected $left;
 
-    /**
-     * @var int|null
-     */
+    /** @var int|null */
     protected $right;
 
-    /**
-     * @var int|null
-     */
+    /** @var int|null */
     protected $level;
 
-    /**
-     * @var int|null
-     */
+    /** @var int|null */
     protected $position;
 
     public function __construct()
@@ -77,9 +59,6 @@ class Taxon implements TaxonInterface
         $this->children = new ArrayCollection();
     }
 
-    /**
-     * @return string
-     */
     public function __toString(): string
     {
         return (string) $this->getName();
@@ -227,6 +206,23 @@ class Taxon implements TaxonInterface
     /**
      * {@inheritdoc}
      */
+    public function getFullname(string $pathDelimiter = ' / '): ?string
+    {
+        if ($this->isRoot()) {
+            return $this->getName();
+        }
+
+        return sprintf(
+            '%s%s%s',
+            $this->getParent()->getFullname(),
+            $pathDelimiter,
+            $this->getName()
+        );
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getSlug(): ?string
     {
         return $this->getTranslation()->getSlug();
@@ -321,8 +317,6 @@ class Taxon implements TaxonInterface
     }
 
     /**
-     * @param string|null $locale
-     *
      * @return TaxonTranslationInterface
      */
     public function getTranslation(?string $locale = null): TranslationInterface

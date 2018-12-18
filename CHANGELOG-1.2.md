@@ -1,5 +1,131 @@
 # CHANGELOG FOR `1.2.X`
 
+## v1.2.13 (2018-12-17)
+
+#### TL;DR
+
+- Fixed compatibility issues with Symfony 4.1.18 and 4.1.19 ([#10020](https://github.com/Sylius/Sylius/issues/10020), [#10038](https://github.com/Sylius/Sylius/issues/10038))
+
+#### Details
+
+- [#9837](https://github.com/Sylius/Sylius/issues/9837) Repaired shipping method fixture ([@JakobTolkemit](https://github.com/JakobTolkemit))
+- [#9919](https://github.com/Sylius/Sylius/issues/9919) Fix for promotion of 100 percent with coupon ([@laurent35240](https://github.com/laurent35240))
+- [#9975](https://github.com/Sylius/Sylius/issues/9975) Ignore locale request restriction for profiler and it's toolbar ([@Peteck](https://github.com/Peteck))
+- [#9985](https://github.com/Sylius/Sylius/issues/9985) Add missing code and calculator mandatory field on tax rate documenation ([@Soullivaneuh](https://github.com/Soullivaneuh))
+- [#9997](https://github.com/Sylius/Sylius/issues/9997) Fix typo cookbook about emails ([@Konafets](https://github.com/Konafets))
+- [#9998](https://github.com/Sylius/Sylius/issues/9998) Improve the ShippingBundle doc ([@Konafets](https://github.com/Konafets))
+- [#10011](https://github.com/Sylius/Sylius/issues/10011) [Kernel] Move WebServerBundle to dev/test environment ([@GSadee](https://github.com/GSadee))
+- [#10012](https://github.com/Sylius/Sylius/issues/10012) Fixed incorrect Behat MinkExtension key in the docs ([@jzawadzki](https://github.com/jzawadzki))
+- [#10016](https://github.com/Sylius/Sylius/issues/10016) Column 'position' cannot be null ([@zspine](https://github.com/zspine))
+- [#10020](https://github.com/Sylius/Sylius/issues/10020) [HotFix][BuildFix] Use old PhpMatcherDumper to avoid trailing slash problems ([@Zales0123](https://github.com/Zales0123))
+- [#10023](https://github.com/Sylius/Sylius/issues/10023) Remove billingAddress and shippingAddress ([@Konafets](https://github.com/Konafets))
+- [#10029](https://github.com/Sylius/Sylius/issues/10029) Fix type annotation for $addToCartCommand ([@daniellienert](https://github.com/daniellienert))
+- [#10038](https://github.com/Sylius/Sylius/issues/10038) Fix the build on 1.3 by more flexible router overriding ([@pamil](https://github.com/pamil))
+
+## v1.2.12 (2018-11-28)
+
+#### TL;DR
+
+- Security fixes according to [problems](https://github.com/dominictarr/event-stream/issues/116) with `dominictarr/event-stream` library
+- Hot-fix preventing installation of `symfony/symfony:4.1.8` due to Behat tests problems
+
+#### Details
+
+- [#9860](https://github.com/Sylius/Sylius/issues/9860) [Behat] Viewing errors ([@loic425](https://github.com/loic425))
+- [#9932](https://github.com/Sylius/Sylius/issues/9932) [Phpspec] add a missing scenario on customer context spec ([@loic425](https://github.com/loic425))
+- [#9937](https://github.com/Sylius/Sylius/issues/9937) [Payum] Add missing model interfaces ([@GSadee](https://github.com/GSadee))
+- [#9945](https://github.com/Sylius/Sylius/issues/9945) Fix for 9942 ([@igormukhingmailcom](https://github.com/igormukhingmailcom))
+- [#9950](https://github.com/Sylius/Sylius/issues/9950) [Docs][Book] Promotion priorities ([@CoderMaggie](https://github.com/CoderMaggie))
+- [#9955](https://github.com/Sylius/Sylius/issues/9955) Remove inline css ([@Prometee](https://github.com/Prometee))
+- [#9963](https://github.com/Sylius/Sylius/issues/9963) [Docs][OrderBundle] Remove old, incorrect docs ([@CoderMaggie](https://github.com/CoderMaggie))
+- [#9970](https://github.com/Sylius/Sylius/issues/9970) [Hot-fix] Make build great again ([@Zales0123](https://github.com/Zales0123))
+- [#9972](https://github.com/Sylius/Sylius/issues/9972) Update gulp-livereload ([@kulczy](https://github.com/kulczy))
+
+## v1.2.11 (2018-11-16)
+
+#### Details
+
+- [#9885](https://github.com/Sylius/Sylius/issues/9885) fixed ad blocking issue ([@loevgaard](https://github.com/loevgaard))
+- [#9887](https://github.com/Sylius/Sylius/issues/9887) use behat page object extension ([@loic425](https://github.com/loic425))
+- [#9898](https://github.com/Sylius/Sylius/issues/9898) #9862 Number of items in order summary page ([@laurent35240](https://github.com/laurent35240))
+- [#9906](https://github.com/Sylius/Sylius/issues/9906) Product images deletion fix ([@Zales0123](https://github.com/Zales0123))
+- [#9908](https://github.com/Sylius/Sylius/issues/9908) [Documentation] Add new styles ([@kulczy](https://github.com/kulczy))
+- [#9910](https://github.com/Sylius/Sylius/issues/9910) [Composer] Update ApiTestCase ([@lchrusciel](https://github.com/lchrusciel))
+- [#9922](https://github.com/Sylius/Sylius/issues/9922) Apply coding standard fixes from SyliusLabs/CodingStandard ^3.0@dev ([@pamil](https://github.com/pamil))
+- [#9923](https://github.com/Sylius/Sylius/issues/9923) Use oneline phpdocs for property type info ([@pamil](https://github.com/pamil))
+- [#9926](https://github.com/Sylius/Sylius/issues/9926) Fix plugin naming convention documentation ([@Zales0123](https://github.com/Zales0123))
+- [#9927](https://github.com/Sylius/Sylius/issues/9927) Fix version widget and add better quality logo ([@kulczy](https://github.com/kulczy))
+- [#9929](https://github.com/Sylius/Sylius/issues/9929) Update SyliusLabs/CodingStandard to ^3.0 ([@pamil](https://github.com/pamil))
+
+## v1.2.10 (2018-11-07)
+
+#### Details
+
+- [#9854](https://github.com/Sylius/Sylius/issues/9854) Update installation.rst ([@zghosts](https://github.com/zghosts))
+- [#9856](https://github.com/Sylius/Sylius/issues/9856) #9694 Do not show bulk sections and checkboxes if bulk actions are di… ([@laurent35240](https://github.com/laurent35240))
+- [#9866](https://github.com/Sylius/Sylius/issues/9866) [Order] Changing function typing ([@Roshyo](https://github.com/Roshyo))
+- [#9883](https://github.com/Sylius/Sylius/issues/9883) Hydrate promotion_rules directly on loading active promotions for a channel (1n) ([@stefandoorn](https://github.com/stefandoorn))
+- [#9892](https://github.com/Sylius/Sylius/issues/9892) [Order] Removing after SM callback ([@Roshyo](https://github.com/Roshyo))
+- [#9900](https://github.com/Sylius/Sylius/issues/9900) Fix typos in BDD Transformers docs ([@sarjon](https://github.com/sarjon))
+
+## v1.2.9 (2018-10-24)
+
+#### Details
+
+- [#9796](https://github.com/Sylius/Sylius/pull/9796) Improve product attributes JS (@Zales0123)
+- [#9827](https://github.com/Sylius/Sylius/pull/9827) Custom homepage controller as public service (@davidroberto)
+- [#9829](https://github.com/Sylius/Sylius/pull/9829) Wrong usage of returned data (@Prometee)
+- [#9832](https://github.com/Sylius/Sylius/pull/9832) Fix gulp uglify error with arrow functions (@magentix)
+- [#9839](https://github.com/Sylius/Sylius/pull/9839) [Docs] How to disable admin notifications (@stefandoorn)
+
+## v1.2.8 (2018-10-11)
+
+#### Details
+
+- [#8093](https://github.com/Sylius/Sylius/pull/8093) [Order] Fixed sylius:remove-expired-carts help (@sweoggy)
+- [#8494](https://github.com/Sylius/Sylius/pull/8494) set gender `u` as default value - resolves #8493 (@pamil, @kochen)
+- [#9627](https://github.com/Sylius/Sylius/pull/9627) Narrow down selectors to prevent unexpected bugs (@teohhanhui)
+- [#9646](https://github.com/Sylius/Sylius/pull/9646) [Admin][Product edit] Change the value of the taxons individually when checked/unchecked. (@sbarbat)
+- [#9685](https://github.com/Sylius/Sylius/pull/9685) Update gulpfile.babel.js (@mihaimitrut)
+- [#9727](https://github.com/Sylius/Sylius/pull/9727) Do not stale issues selected to Roadmap (@Zales0123)
+- [#9741](https://github.com/Sylius/Sylius/pull/9741) [Travis] validate yaml files (@loic425)
+- [#9742](https://github.com/Sylius/Sylius/pull/9742) [Behat] Changing my account password with token I received scenario (@loic425)
+- [#9743](https://github.com/Sylius/Sylius/pull/9743) Update shipments.rst (@hmonglee)
+- [#9754](https://github.com/Sylius/Sylius/pull/9754) Fix the "REST APIs" link in the documentation (@dunglas)
+- [#9755](https://github.com/Sylius/Sylius/pull/9755) [Documentation] Fix API example for creating a taxon (@pamil)
+- [#9756](https://github.com/Sylius/Sylius/pull/9756) Allow for null hostname in ChannelFixture (@pamil)
+- [#9757](https://github.com/Sylius/Sylius/pull/9757) Make ArrayGridProvider more performant & suitable for PHP-PM (@pamil)
+- [#9758](https://github.com/Sylius/Sylius/pull/9758) [ThemeBundle] Fix risky tests (@pamil)
+- [#9759](https://github.com/Sylius/Sylius/pull/9759) [GridBundle] Do not put unnecessary "andWhere" in ExpressionBuilder (@pamil)
+- [#9760](https://github.com/Sylius/Sylius/pull/9760) [CoreBundle] Make sure promotion action/rule amount is an integer (@pamil)
+- [#9761](https://github.com/Sylius/Sylius/pull/9761) [ThemeBundle] Replace "symfony/symfony" dependency with specific Symfony packages (@pamil)
+- [#9762](https://github.com/Sylius/Sylius/pull/9762) [Grid] Fix getting enabled grid items (@pamil)
+- [#9763](https://github.com/Sylius/Sylius/pull/9763) Update "Configuring taxation" docs (@pamil)
+- [#9764](https://github.com/Sylius/Sylius/pull/9764) [ShippingBundle] Add validation for ShippingMethod calculator (@pamil)
+- [#9765](https://github.com/Sylius/Sylius/pull/9765) Keep the existing pagination when changing sorting on product list page (@pamil)
+- [#9769](https://github.com/Sylius/Sylius/pull/9769) [Behat] Add scenarios on resetting password validation feature (@loic425)
+- [#9772](https://github.com/Sylius/Sylius/pull/9772) Fix doubled province id on checkout addressing page (@pamil)
+- [#9774](https://github.com/Sylius/Sylius/pull/9774) Ask for confirmation when cancelling an order (@pamil)
+- [#9775](https://github.com/Sylius/Sylius/pull/9775) Limit products shown in associated products autocomplete field (@pamil)
+- [#9776](https://github.com/Sylius/Sylius/pull/9776) [Core] Make implicit dependency explicit (@pamil)
+- [#9783](https://github.com/Sylius/Sylius/pull/9783) Correct grammar mistake in README (@pamil)
+- [#9791](https://github.com/Sylius/Sylius/pull/9791) [Docs] Update year in copyright (@CoderMaggie)
+- [#9803](https://github.com/Sylius/Sylius/pull/9803) `purge_mode` has been rename to `mode` (@Prometee)
+- [#9805](https://github.com/Sylius/Sylius/pull/9805) [Shop] Fix password request & contact pages with a mobile view. (@versgui)
+
+## v1.2.7 (2018-09-24)
+
+#### Details
+
+- [#9683](https://github.com/Sylius/Sylius/pull/9683) Do not run tests if not needed (@pamil)
+- [#9687](https://github.com/Sylius/Sylius/pull/9687) [Core][Fixture] Fix for ignored geographical zone scope (@SebLours)
+- [#9691](https://github.com/Sylius/Sylius/pull/9691) Fixing Typo in Documentation (@bhargavmehta)
+- [#9700](https://github.com/Sylius/Sylius/pull/9700) Allow to use Pagerfanta in both ^1.0 and ^2.0 (@pamil)
+- [#9708](https://github.com/Sylius/Sylius/pull/9708) Fix typo in Behat feature (@stefandoorn)
+- [#9709](https://github.com/Sylius/Sylius/pull/9709) Fix typo in filename (@stefandoorn)
+- [#9714](https://github.com/Sylius/Sylius/pull/9714) Fix docs build (@pamil)
+- [#9724](https://github.com/Sylius/Sylius/pull/9724) PHPSpec version not specified in docs (@Zales0123)
+
 ## v1.2.6 (2018-08-27)
 
 #### Details

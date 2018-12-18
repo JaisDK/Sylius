@@ -2,7 +2,7 @@ Customizing Forms
 =================
 
 The forms in Sylius are placed in the ``Sylius\Bundle\*BundleName*\Form\Type`` namespaces and the extensions
-will be placed in `AppBundle\Form\Extension`.
+will be placed in `App\Form\Extension`.
 
 Why would you customize a Form?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -49,7 +49,7 @@ As a result you will get the ``Sylius\Bundle\CustomerBundle\Form\Type\CustomerPr
 
     <?php
 
-    namespace AppBundle\Form\Extension;
+    namespace App\Form\Extension;
 
     use Sylius\Bundle\CustomerBundle\Form\Type\CustomerProfileType;
     use Symfony\Component\Form\AbstractTypeExtension;
@@ -89,15 +89,15 @@ As a result you will get the ``Sylius\Bundle\CustomerBundle\Form\Type\CustomerPr
 
 .. note::
     Of course remember that you need to define new labels for your fields
-    in the ``app\Resources\translations\messages.en.yml`` for english contents of your messages.
+    in the ``translations\messages.en.yml`` for english contents of your messages.
 
-**3.** After creating your class, register this extension as a service in the ``app/config/services.yml``:
+**3.** After creating your class, register this extension as a service in the ``config/services.yaml``:
 
 .. code-block:: yaml
 
     services:
         app.form.extension.type.customer_profile:
-            class: AppBundle\Form\Extension\CustomerProfileTypeExtension
+            class: App\Form\Extension\CustomerProfileTypeExtension
             tags:
                 - { name: form.type_extension, extended_type: Sylius\Bundle\CustomerBundle\Form\Type\CustomerProfileType }
 
@@ -105,16 +105,19 @@ As a result you will get the ``Sylius\Bundle\CustomerBundle\Form\Type\CustomerPr
     Of course remember that you need to render the new fields you have created,
     and remove the rendering of the fields that you have removed **in your views**.
 
-In our case you will need a new template: `app/Resources/SyliusShopBundle/views/Account/profileUpdate.html.twig`.
-
-In **Twig** for example you can render your modified form in such a way:
+In our case you will need to copy the original template from `vendor/sylius/sylius/src/Sylius/Bundle/ShopBundle/Resources/views/Account/profileUpdate.html.twig`
+to `templates/bundles/SyliusShopBundle/Account/` and add the fields inside the copy
 
 .. code-block:: html
 
-    <div class="two fields">
-        <div class="field">{{ form_row(form.birthday) }}</div>
-        <div class="field">{{ form_row(form.contactHours) }}</div>
-    </div>
+    {{ form_row(form.phoneNumber) }}
+    {{ form_row(form.subscribedToNewsletter) }}
+
+    <!-- your fields -->
+    {{ form_row(form.birthday) }}
+    {{ form_row(form.contactHours) }}
+
+    {{ sonata_block_render_event('sylius.shop.account.profile.update.form', {'customer': customer, 'form': form}) }}
 
 Need more information?
 ----------------------
@@ -130,7 +133,7 @@ For instance the ``ProductVariant`` admin form is defined under ``Sylius/Bundle/
 
     services:
         app.form.extension.type.product_variant:
-            class: AppBundle\Form\Extension\ProductVariantTypeMyExtension
+            class: App\Form\Extension\ProductVariantTypeMyExtension
             tags:
                 - { name: form.type_extension, extended_type: Sylius\Bundle\ProductBundle\Form\Type\ProductVariantType, priority: -5 }
 

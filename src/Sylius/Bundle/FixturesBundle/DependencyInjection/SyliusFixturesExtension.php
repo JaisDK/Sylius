@@ -13,6 +13,10 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\FixturesBundle\DependencyInjection;
 
+use Sylius\Bundle\FixturesBundle\DependencyInjection\Compiler\FixtureRegistryPass;
+use Sylius\Bundle\FixturesBundle\DependencyInjection\Compiler\ListenerRegistryPass;
+use Sylius\Bundle\FixturesBundle\Fixture\FixtureInterface;
+use Sylius\Bundle\FixturesBundle\Listener\ListenerInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
@@ -32,6 +36,15 @@ final class SyliusFixturesExtension extends Extension implements PrependExtensio
         $loader->load('services.xml');
 
         $this->registerSuites($config, $container);
+
+        $container
+            ->registerForAutoconfiguration(FixtureInterface::class)
+            ->addTag(FixtureRegistryPass::FIXTURE_SERVICE_TAG)
+        ;
+        $container
+            ->registerForAutoconfiguration(ListenerInterface::class)
+            ->addTag(ListenerRegistryPass::LISTENER_SERVICE_TAG)
+        ;
     }
 
     /**
@@ -56,10 +69,6 @@ final class SyliusFixturesExtension extends Extension implements PrependExtensio
         }
     }
 
-    /**
-     * @param array $config
-     * @param ContainerBuilder $container
-     */
     private function registerSuites(array $config, ContainerBuilder $container): void
     {
         $suiteRegistry = $container->findDefinition('sylius_fixtures.suite_registry');

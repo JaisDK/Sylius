@@ -20,7 +20,7 @@ Implement the ResourceInterface in your model class.
 
     <?php
 
-    namespace AppBundle\Entity;
+    namespace App\Entity;
 
     use Sylius\Component\Resource\Model\ResourceInterface;
 
@@ -46,7 +46,7 @@ In your ``app/config/config.yml`` add:
         resources:
             app.book:
                 classes:
-                    model: AppBundle\Entity\Book
+                    model: App\Entity\Book
 
 That's it! Your Book entity is now registered as Sylius Resource.
 
@@ -66,11 +66,11 @@ You can also configure several doctrine drivers.
         resources:
             app.book:
                 classes:
-                    model: AppBundle\Entity\Book
+                    model: App\Entity\Book
             app.article:
                 driver: doctrine/phpcr-odm
                 classes:
-                    model: AppBundle\Document\ArticleDocument
+                    model: App\Document\ArticleDocument
 
 Generate API routing.
 ---------------------
@@ -80,7 +80,7 @@ Generate API routing.
     Learn more about using Sylius REST API in these articles:
     :doc:`REST API Reference </api/index>`, :doc:`How to use Sylius API? - Cookbook </cookbook/api/api>`.
 
-Add the following lines to ``app/config/routing.yml``:
+Add the following lines to ``config/routes.yaml``:
 
 .. code-block:: yaml
 

@@ -31,10 +31,10 @@ use Webmozart\Assert\Assert;
 
 class Kernel extends HttpKernel
 {
-    public const VERSION = '1.3.0-DEV';
-    public const VERSION_ID = '10300';
+    public const VERSION = '1.4.0-DEV';
+    public const VERSION_ID = '10400';
     public const MAJOR_VERSION = '1';
-    public const MINOR_VERSION = '3';
+    public const MINOR_VERSION = '4';
     public const RELEASE_VERSION = '0';
     public const EXTRA_VERSION = 'DEV';
 
@@ -103,14 +103,12 @@ class Kernel extends HttpKernel
             new \Sylius\Bundle\FixturesBundle\SyliusFixturesBundle(),
             new \Sylius\Bundle\PayumBundle\SyliusPayumBundle(), // must be added after PayumBundle.
             new \Sylius\Bundle\ThemeBundle\SyliusThemeBundle(), // must be added after FrameworkBundle
-
-            new \Symfony\Bundle\WebServerBundle\WebServerBundle(), // allows to run build in web server. Not recommended for prod environment
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test', 'test_cached'], true)) {
-            $bundles[] = new \Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new \Symfony\Bundle\DebugBundle\DebugBundle();
             $bundles[] = new \Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
+            $bundles[] = new \Symfony\Bundle\WebServerBundle\WebServerBundle();
         }
 
         return $bundles;
@@ -186,9 +184,6 @@ class Kernel extends HttpKernel
         return dirname($this->getRootDir()) . '/var/logs';
     }
 
-    /**
-     * @return bool
-     */
     protected function isVagrantEnvironment(): bool
     {
         return (getenv('HOME') === '/home/vagrant' || getenv('VAGRANT') === 'VAGRANT') && is_dir('/dev/shm');

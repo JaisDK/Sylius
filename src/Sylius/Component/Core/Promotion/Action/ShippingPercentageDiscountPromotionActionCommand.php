@@ -27,14 +27,9 @@ final class ShippingPercentageDiscountPromotionActionCommand implements Promotio
 {
     public const TYPE = 'shipping_percentage_discount';
 
-    /**
-     * @var FactoryInterface
-     */
+    /** @var FactoryInterface */
     private $adjustmentFactory;
 
-    /**
-     * @param FactoryInterface $adjustmentFactory
-     */
     public function __construct(FactoryInterface $adjustmentFactory)
     {
         $this->adjustmentFactory = $adjustmentFactory;
@@ -80,19 +75,13 @@ final class ShippingPercentageDiscountPromotionActionCommand implements Promotio
             );
         }
 
-        foreach ($subject->getAdjustments(AdjustmentInterface::ORDER_PROMOTION_ADJUSTMENT) as $adjustment) {
+        foreach ($subject->getAdjustments(AdjustmentInterface::ORDER_SHIPPING_PROMOTION_ADJUSTMENT) as $adjustment) {
             if ($promotion->getCode() === $adjustment->getOriginCode()) {
                 $subject->removeAdjustment($adjustment);
             }
         }
     }
 
-    /**
-     * @param PromotionInterface $promotion
-     * @param string $type
-     *
-     * @return OrderAdjustmentInterface
-     */
     private function createAdjustment(
         PromotionInterface $promotion,
         string $type = AdjustmentInterface::ORDER_SHIPPING_PROMOTION_ADJUSTMENT
