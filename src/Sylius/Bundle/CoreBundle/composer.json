@@ -22,6 +22,7 @@
     "require": {
         "php": "^7.2",
 
+		"egulias/email-validator": "~2.0",
         "fzaninotto/faker": "^1.6",
         "jms/serializer-bundle": "^2.0",
         "knplabs/knp-gaufrette-bundle": "^0.5",
@@ -55,10 +56,10 @@
     },
     "require-dev": {
         "hwi/oauth-bundle": "^0.6",
-        "matthiasnoback/symfony-config-test": "^3.0",
-        "matthiasnoback/symfony-dependency-injection-test": "^2.0",
-        "phpspec/phpspec": "^4.0",
-        "phpunit/phpunit": "^6.5",
+        "matthiasnoback/symfony-config-test": "^4.0",
+        "matthiasnoback/symfony-dependency-injection-test": "^3.0",
+        "phpspec/phpspec": "^5.0",
+        "phpunit/phpunit": "^7.0",
         "symfony/dependency-injection": "^3.4|^4.1.1"
     },
     "conflict": {
@@ -83,7 +84,7 @@
     ],
     "extra": {
         "branch-alias": {
-            "dev-master": "1.4-dev"
+            "dev-master": "1.5-dev"
         }
     }
 }

@@ -71,7 +71,9 @@ class ProductRepository extends BaseProductRepository implements ProductReposito
         bool $includeAllDescendants = false
     ): QueryBuilder {
         $queryBuilder = $this->createQueryBuilder('o')
+            ->distinct()
             ->addSelect('translation')
+            ->addSelect('productTaxon')
             ->innerJoin('o.translations', 'translation', 'WITH', 'translation.locale = :locale')
             ->innerJoin('o.productTaxons', 'productTaxon');
 

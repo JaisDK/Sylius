@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-/**
- * @internal
- */
-
 declare(strict_types=1);
 
-@trigger_error('The "AppKernel" class located at "app/AppKernel.php" is deprecated since Sylius 1.3. Use "Kernel" class located at "src/Kernel.php" instead.', E_USER_DEPRECATED);
+namespace Sylius\Bundle\UserBundle\spec\Fixture;
 
-class_alias(Kernel::class, AppKernel::class);
+use Sylius\Component\User\Model\User;
+
+class FixtureUser extends User implements FixtureUserInterface
+{
+}

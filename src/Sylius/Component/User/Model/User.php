@@ -104,6 +104,9 @@ class User implements UserInterface
     /** @var string|null */
     protected $emailCanonical;
 
+    /** @var string|null */
+    protected $encoderName;
+
     public function __construct()
     {
         $this->salt = base_convert(bin2hex(random_bytes(20)), 16, 36);
@@ -484,6 +487,22 @@ class User implements UserInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function getEncoderName(): ?string
+    {
+        return $this->encoderName;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setEncoderName(?string $encoderName): void
+    {
+        $this->encoderName = $encoderName;
+    }
+
+    /**
      * The serialized data have to contain the fields used by the equals method and the username.
      */
     public function serialize(): string
@@ -496,6 +515,7 @@ class User implements UserInterface
             $this->locked,
             $this->enabled,
             $this->id,
+            $this->encoderName,
         ]);
     }
 
@@ -516,7 +536,8 @@ class User implements UserInterface
             $this->username,
             $this->locked,
             $this->enabled,
-            $this->id
+            $this->id,
+            $this->encoderName,
         ] = $data;
     }
 

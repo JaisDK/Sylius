@@ -34,7 +34,7 @@
         "sylius/resource": "^1.0"
     },
     "require-dev": {
-        "phpspec/phpspec": "^4.0"
+        "phpspec/phpspec": "^5.0"
     },
     "config": {
         "bin-dir": "bin"
@@ -55,7 +55,7 @@
     ],
     "extra": {
         "branch-alias": {
-            "dev-master": "1.4-dev"
+            "dev-master": "1.5-dev"
         }
     }
 }

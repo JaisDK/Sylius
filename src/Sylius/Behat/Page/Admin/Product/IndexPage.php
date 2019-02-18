@@ -26,21 +26,18 @@ final class IndexPage extends CrudIndexPage implements IndexPageInterface
 
     public function __construct(
         Session $session,
-        array $parameters,
+        $minkParameters,
         RouterInterface $router,
         TableAccessorInterface $tableAccessor,
         string $routeName,
         ImageExistenceCheckerInterface $imageExistenceChecker
     ) {
-        parent::__construct($session, $parameters, $router, $tableAccessor, $routeName);
+        parent::__construct($session, $minkParameters, $router, $tableAccessor, $routeName);
 
         $this->imageExistenceChecker = $imageExistenceChecker;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function filterByTaxon($taxonName)
+    public function filterByTaxon(string $taxonName): void
     {
         $this->getElement('taxon_filter', ['%taxon%' => $taxonName])->click();
     }
@@ -53,9 +50,6 @@ final class IndexPage extends CrudIndexPage implements IndexPageInterface
         return $this->imageExistenceChecker->doesImageWithUrlExist($imageUrl, 'sylius_admin_product_thumbnail');
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function getDefinedElements(): array
     {
         return array_merge(parent::getDefinedElements(), [

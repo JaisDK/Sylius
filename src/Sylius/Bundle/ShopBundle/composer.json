@@ -35,10 +35,10 @@
         "symfony/security-bundle": "^3.4|^4.1.1"
     },
     "require-dev": {
-        "matthiasnoback/symfony-config-test": "^3.0",
-        "matthiasnoback/symfony-dependency-injection-test": "^2.0",
-        "phpspec/phpspec": "^4.0",
-        "phpunit/phpunit": "^6.5",
+        "matthiasnoback/symfony-config-test": "^4.0",
+        "matthiasnoback/symfony-dependency-injection-test": "^3.0",
+        "phpspec/phpspec": "^5.0",
+        "phpunit/phpunit": "^7.0",
         "symfony/dependency-injection": "^3.4|^4.1.1"
     },
     "config": {
@@ -59,7 +59,7 @@
     ],
     "extra": {
         "branch-alias": {
-            "dev-master": "1.4-dev"
+            "dev-master": "1.5-dev"
         }
     }
 }
